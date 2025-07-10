@@ -20,11 +20,6 @@ months = {
     7: 'июля', 8: 'августа', 9: 'сентября', 10: 'октября', 11: 'ноября', 12: 'декабря'
 }
 
-try:
-    locale.setlocale(locale.LC_TIME, 'ru_RU.UTF-8')
-except locale.Error:
-    locale.setlocale(locale.LC_TIME, 'Russian')
-
 BOT_API_TOKEN = os.getenv('BOT_API_TOKEN')
 WEATHER_API_TOKEN = os.getenv('WEATHER_API_TOKEN')
 

@@ -4,7 +4,7 @@ import telebot
 import requests
 import datetime
 import os
-import locale
+import pytz
 from dotenv import  load_dotenv
 
 from telebot import types
@@ -41,9 +41,11 @@ def get_weather(city_name):
         pressure = data['main']['pressure']
         humidity = data['main']['humidity']
 
-        now = datetime.datetime.now()
+        moscow_tz = pytz.timezone('Europe/Moscow')
 
-        actual_time = now.strftime("%H:%M")
+        now_in_moscow = datetime.datetime.now(moscow_tz)
+
+        actual_time = now_in_moscow.strftime("%H:%M")
 
         weather_report = (f"Погода в городе {city} на {actual_time}:\n"
                           f"🌡️ Температура: {temp}°C (ощущается как {feels_like}°C)\n"
